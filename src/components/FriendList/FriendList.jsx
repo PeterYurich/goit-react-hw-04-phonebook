@@ -11,7 +11,6 @@ const FriendList = ({ friends }) => {
             class={friend.isOnline ? css.status_online : css.status_offline}
           >
           </span>
-
           <img class={css.avatar} src={friend.avatar} alt="User avatar" width="48" />
           <p class={css.name}>{friend.name}</p>
         </li>

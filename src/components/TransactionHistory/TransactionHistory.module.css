@@ -3,6 +3,7 @@
     margin: 50px;
     box-shadow: 1px 1px 18px 3px rgba(0,0,0,0.74);
     padding: 10px;
+    border-radius: 5px;
 }
 
 .column {
@@ -38,5 +39,5 @@
 }
 
 .gradient {
-    background-color:rgba(172, 209, 191, 0.356)
+    background-color:rgba(146, 172, 160, 0.356)
 }
