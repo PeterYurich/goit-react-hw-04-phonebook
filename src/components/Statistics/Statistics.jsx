@@ -10,12 +10,12 @@ const Statistics = ({ title, stats }) => {
       {title && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css.stat_list}>
-        {stats.map(item => (
+        {stats.map(item => 
           <li key={item.id} className={css.stat_item}>
             <span className={css.label}>{item.label}</span>
             <span className={css.percentage}>{item.percentage}</span>
           </li>
-        ))}
+        )}
       </ul>
     </section>
   )

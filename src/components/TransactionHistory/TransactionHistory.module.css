@@ -11,6 +11,8 @@
 
 .table_head {
     composes: column;
+
+    text-transform: uppercase;
     
     background-color: rgb(79, 180, 147);
 }
@@ -19,7 +21,7 @@
 .type_column {
     composes: column;
 
-    padding-left: 10px;
+    padding-left: 7px;
 }
 
 .amount_column {
