@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./Profile.module.css";
-import propTypes from "prop-types"
+import PropTypes from "prop-types"
 
 const Profile = ({ userName, tag, location, avatar, stats }) => {
   return (
@@ -14,15 +14,15 @@ const Profile = ({ userName, tag, location, avatar, stats }) => {
 
       <ul className={css.stats}>
         <li className={css.stats_item}>
-          <span className="label">Followers: </span>
+          <span>Followers: </span>
           <span className={css.quantity}>{stats.followers}</span>
         </li>
         <li className={css.stats_item}>
-          <span className="label">Views: </span>
+          <span>Views: </span>
           <span className={css.quantity}>{stats.views}</span>
         </li>
         <li className={css.stats_item}>
-          <span className="label">Likes: </span>
+          <span>Likes: </span>
           <span className={css.quantity}>{stats.likes}</span>
         </li>
       </ul>
@@ -31,11 +31,11 @@ const Profile = ({ userName, tag, location, avatar, stats }) => {
 };
 
 Profile.propTypes = {
-  userName: propTypes.string.isRequired, 
-  tag: propTypes.string.isRequired, 
-  location: propTypes.string.isRequired, 
-  avatar: propTypes.string.isRequired, 
-  stats: propTypes.objectOf(propTypes.number).isRequired
+  userName: PropTypes.string.isRequired, 
+  tag: PropTypes.string.isRequired, 
+  location: PropTypes.string.isRequired, 
+  avatar: PropTypes.string.isRequired, 
+  stats: PropTypes.objectOf(PropTypes.number).isRequired
 }
 
 export default Profile

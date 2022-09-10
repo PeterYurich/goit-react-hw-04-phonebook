@@ -7,15 +7,13 @@ import data from './alya-back-end/data.json';
 import Statistics from './components/Statistics/Statistics';
 import friends from './alya-back-end/friends';
 import FriendList from './components/FriendList/FriendList';
-import transactionHistory from './alya-back-end/transactions';
+import transactions from './alya-back-end/transactions';
 import TransactionHistory from './components/TransactionHistory/TransactionHistory';
-
-console.log(user)
 
 function App() {
 
   return (
-    <div class="container">
+    <div className="container">
       <h2>Task-1</h2>
       <Profile
       userName={user.username}
@@ -29,7 +27,7 @@ function App() {
       <h2>Task-3</h2>
       <FriendList friends={friends} />
       <h2>Task-4</h2>
-      <TransactionHistory transactionHistory={transactionHistory} />
+      <TransactionHistory transactions={transactions} />
       </div>
   )
 }
