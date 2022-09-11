@@ -1,23 +1,28 @@
-import React from "react"
-import css from "./FriendList.module.css";
-import PropTypes from "prop-types";
+import React from 'react';
+// import css from "./FriendList.module.css";
+import PropTypes from 'prop-types';
 
+import {
+  FriendCard,
+  FriendStatus,
+  FriendAvatar,
+  FriendName,
+} from './friend.styled';
 
-const Friend = ({avatar, name, isOnline}) => {
-    return (<li className={css.friend_card}>
-    <span
-      className={isOnline ? css.status_online : css.status_offline}
-    >
-    </span>
-    <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
-    <p className={css.name}>{name}</p>
-  </li>)
+const Friend = ({ avatar, name, isOnline }) => {
+  return (
+    <FriendCard>
+      <FriendStatus isOnline={isOnline}></FriendStatus>
+      <FriendAvatar src={avatar} alt="User avatar" width="48" />
+      <FriendName>{name}</FriendName>
+    </FriendCard>
+  );
 };
 
 Friend.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   isOnline: PropTypes.bool.isRequired,
-}
+};
 
-export default Friend
+export default Friend;

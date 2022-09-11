@@ -1,11 +1,12 @@
-import React from "react";
-import css from "./FriendList.module.css";
-import PropTypes from "prop-types";
-import Friend from "../../components/FriendList/Friend.jsx";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Friend from '../../components/FriendList/Friend.jsx';
+
+import { FriendListRef } from 'components/FriendList/friend-list.styled';
 
 const FriendList = ({ friends }) => {
   return (
-    <ul className={css.friend_list}>
+    <FriendListRef>
       {friends.map(({ avatar, name, isOnline, id }) => (
         <Friend
           key={id}
@@ -14,7 +15,7 @@ const FriendList = ({ friends }) => {
           isOnline={isOnline}
         ></Friend>
       ))}
-    </ul>
+    </FriendListRef>
   );
 };
 
