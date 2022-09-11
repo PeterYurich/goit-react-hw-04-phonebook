@@ -1,5 +1,7 @@
 import React from "react"
 import css from "./FriendList.module.css";
+import PropTypes from "prop-types";
+
 
 const Friend = ({avatar, name, isOnline}) => {
     return (<li className={css.friend_card}>
@@ -11,5 +13,11 @@ const Friend = ({avatar, name, isOnline}) => {
     <p className={css.name}>{name}</p>
   </li>)
 };
+
+Friend.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
+}
 
 export default Friend
