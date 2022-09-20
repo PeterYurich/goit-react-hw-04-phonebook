@@ -12,6 +12,25 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    try {
+      const existingContacts = localStorage.getItem("contacts") && "[]"
+
+      const parsedExistingContacts = JSON.parse(existingContacts)
+      this.setState(
+        { contacts: parsedExistingContacts }
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+    console.log(contacts)
+  }
+
   controlInput = evt => {
     this.setState({ [evt.target.name]: evt.target.value });
   };
@@ -28,12 +47,12 @@ class App extends Component {
       return person.name.toLowerCase() === name.toLowerCase()
     })
 
-    !repeatedName?(this.setState(({ contacts }) => {
+    !repeatedName ? (this.setState(({ contacts }) => {
       return {
         contacts: [contactItem, ...contacts],
       }
     }))
-    : alert(`${name} is already in contacts`)
+      : alert(`${name} is already in contacts`)
   };
 
   findContact = () => {
@@ -46,18 +65,18 @@ class App extends Component {
   };
 
   deleteContact = (contactIdToDelete) => {
-    const {contacts} = this.state
+    const { contacts } = this.state
 
     const leftContacts = contacts.filter(contactItem => (
-      contactItem.id !== contactIdToDelete 
+      contactItem.id !== contactIdToDelete
     ))
     this.setState(
-      {contacts: leftContacts}
+      { contacts: leftContacts }
     )
   }
 
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
     const visibleContacts = this.findContact();
 
     return (
@@ -66,7 +85,7 @@ class App extends Component {
         <ContactForm onSubmit={this.addContact} ></ContactForm>
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.controlInput}></Filter>
-        <ContactList toRender={visibleContacts} deleteContact={this.deleteContact}></ContactList>
+        <ContactList allContacts={contacts} toRender={visibleContacts} deleteContact={this.deleteContact}></ContactList>
       </div>
     )
   }
