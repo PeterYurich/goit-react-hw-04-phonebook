@@ -14,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     try {
-      const existingContacts = localStorage.getItem("contacts") && "[]"
+      const existingContacts = localStorage.getItem("contacts") || "[]"
 
       const parsedExistingContacts = JSON.parse(existingContacts)
       this.setState(
