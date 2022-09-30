@@ -25,10 +25,13 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState)  {
     const { contacts } = this.state;
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-    console.log(contacts)
+
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+      console.log(contacts)
+    }
   }
 
   controlInput = evt => {
