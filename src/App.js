@@ -8,8 +8,8 @@ import css from 'components/App.module.scss'
 
 const App = () => {
 
-  const [contacts, setContacts] = useState(() => 
-  (JSON.parse(localStorage.getItem("contacts")) ?? []));
+  const [contacts, setContacts] = useState(() =>
+    (JSON.parse(localStorage.getItem("contacts")) ?? []));
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
