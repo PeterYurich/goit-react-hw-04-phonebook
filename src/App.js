@@ -8,21 +8,8 @@ import css from 'components/App.module.scss'
 
 const App = () => {
 
-  const existingContacts = localStorage.getItem("contacts") || "[]"
-  const parsedExistingContacts = JSON.parse(existingContacts)
-
-  const [contacts, setContacts] = useState(parsedExistingContacts);
+  const [contacts, setContacts] = useState(() => (JSON.parse(localStorage.getItem("contacts")) ?? []));
   const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   try {
-  //     const existingContacts = localStorage.getItem("contacts") || "[]"
-  //     const parsedExistingContacts = JSON.parse(existingContacts)
-  //     setContacts(parsedExistingContacts)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }, [])
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
