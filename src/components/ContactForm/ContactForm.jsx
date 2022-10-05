@@ -24,6 +24,8 @@ const ContactForm = ({ onSubmit }) => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
+    setName('')
+    setPhone('')
     onSubmit({ name, phone });
   };
 
