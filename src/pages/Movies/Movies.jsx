@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 import { getRequestedMovies } from '../../api/getMovies';
 
-export function Movies() {
+function Movies() {
   const [inputValue, setInputValue] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export function Movies() {
     };
     getMoviesForMoviesPage();
     setInputValue('');
-  }, [searchValue]);
+  }, [searchValue, query]);
 
   function changeHandler(evt) {
     const { value } = evt.target;
@@ -66,3 +66,5 @@ export function Movies() {
     </div>
   );
 }
+
+export default Movies

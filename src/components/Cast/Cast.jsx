@@ -21,7 +21,7 @@ export function Cast() {
       }
     };
     getData();
-  }, []);
+  }, [movieId]);
 
   const actors = data
     ? data.map(({ cast_id, profile_path, name }) => (

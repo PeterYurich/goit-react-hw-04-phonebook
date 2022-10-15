@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Outlet, Link } from 'react-router-dom';
-import { getMovieDetails } from '../../api/getMovies';
+import { useParams, Outlet, Link, useLocation} from 'react-router-dom';
 
+import { getMovieDetails } from '../../api/getMovies';
 import css from './SingleMovie.module.css';
 
 export function SingleMovie() {
   const { movieId } = useParams();
   const [loading, setLoadin] = useState(true);
   const [movieData, setMovieData] = useState(null);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+  console.log(location)
 
   useEffect(() => {
     const getMovieData = async () => {
@@ -27,6 +30,9 @@ export function SingleMovie() {
     <>
       <div className={css.section}>
         <div className="container">
+          <Link className={css.goBack} to={backLinkHref}>
+            {'<<< '}Go back
+          </Link>
           {loading && <div> LOADING...</div>}
           {movieData && (
             <div className={css.mainInfo}>
@@ -36,7 +42,7 @@ export function SingleMovie() {
                   src={`https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`}
                   alt={movieData.title}
                 />
-              )}{' '}
+              )}
               <div className={css.column}>
                 <h1 className={css.title}>{movieData.title}</h1>
                 <p>Raititng: {movieData.vote_average}</p>

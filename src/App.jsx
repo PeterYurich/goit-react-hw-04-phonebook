@@ -1,8 +1,14 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Home } from './pages/Home/Home';
-import { Movies } from './pages/Movies/Movies';
+// const asyncComponent = lazy((path) => import(path))
+
+// const Home = asyncComponent('./pages/Home/Home')
+// const Home = lazy(() => import("./pages/Home/Home"))
+// const Movies = lazy(() => import("./pages/Movies/Movies"))
+
+import Home from './pages/Home/Home'; 
+import Movies from './pages/Movies/Movies';
 import { Navbar } from './components/Navbar/Navbar';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { SingleMovie } from './pages/SingleMovie/SingleMovie';

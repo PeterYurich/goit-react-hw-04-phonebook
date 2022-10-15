@@ -19,3 +19,7 @@
     list-style:square
 }
 
+.goBack {
+    display: block;
+    margin-bottom: 15px;
+}
