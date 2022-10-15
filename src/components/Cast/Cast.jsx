@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getMovieCredits } from '../../api/getMovies';
 import css from './Cast.module.css';
 
-export function Cast() {
+function Cast() {
   const [data, setData] = useState(null);
   const [loading, setLoadin] = useState(true);
   const { movieId } = useParams();
@@ -46,3 +46,5 @@ export function Cast() {
     </div>
   );
 }
+
+export default Cast

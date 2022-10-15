@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useParams, Outlet, Link, useLocation} from 'react-router-dom';
 
 import { getMovieDetails } from '../../api/getMovies';
 import css from './SingleMovie.module.css';
 
-export function SingleMovie() {
+function SingleMovie() {
   const { movieId } = useParams();
   const [loading, setLoadin] = useState(true);
   const [movieData, setMovieData] = useState(null);
@@ -73,9 +73,13 @@ export function SingleMovie() {
       </div>
       <div className="section">
         <div className="container">
-          <Outlet />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </div>
       </div>
     </>
   );
 }
+
+export default SingleMovie
