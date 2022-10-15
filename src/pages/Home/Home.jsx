@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getPopularMovies } from '../../api/getMovies';
 
 function Home() {
   const [popMovies, setPopMovies] = useState([{ id: '01', title: 'title' }]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
 
   useEffect(() => {
     const getMoviesForHomePage = async () => {
@@ -28,7 +27,7 @@ function Home() {
       <ul>
         {popMovies.map(movie => (
           <li key={movie.id}>
-            <Link className="list_item" to={`/movies/${movie.id}`} state={{from: location}}>
+            <Link className="list_item" to={`/movies/${movie.id}`}>
               - {movie.title}
             </Link>
           </li>

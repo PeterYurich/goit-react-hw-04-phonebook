@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
 import { getRequestedMovies } from '../../api/getMovies';
 
@@ -9,8 +9,9 @@ function Movies() {
   const [loading, setLoading] = useState(false);
   const [moviesToRender, setMoviesToRender] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query')
-  
+  const query = searchParams.get('query');
+  const location = useLocation();
+
   function saveSearchRequest(evt) {
     evt.preventDefault();
     if (inputValue === '') {
@@ -55,9 +56,8 @@ function Movies() {
       {loading && <div>LOADING...</div>}
       <ul>
         {moviesToRender.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} state={{from: location}}>
             <Link className="list_item" to={`/movies/${movie.id}`}>
-              {' '}
               - {movie.title}
             </Link>
           </li>
@@ -67,4 +67,4 @@ function Movies() {
   );
 }
 
-export default Movies
+export default Movies;

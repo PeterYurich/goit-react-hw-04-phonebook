@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { useParams, Outlet, Link, useLocation} from 'react-router-dom';
+import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 
 import { getMovieDetails } from '../../api/getMovies';
 import css from './SingleMovie.module.css';
@@ -10,7 +10,7 @@ function SingleMovie() {
   const [movieData, setMovieData] = useState(null);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-  console.log(location)
+  console.log("loc.st", location.state) // null always
 
   useEffect(() => {
     const getMovieData = async () => {
@@ -71,10 +71,10 @@ function SingleMovie() {
           </ul>
         </div>
       </div>
-      <div className="section">
+      <div className={css.section}>
         <div className="container">
           <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
+          <Outlet />
           </Suspense>
         </div>
       </div>
@@ -82,4 +82,4 @@ function SingleMovie() {
   );
 }
 
-export default SingleMovie
+export default SingleMovie;

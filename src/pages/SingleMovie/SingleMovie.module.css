@@ -22,4 +22,15 @@
 .goBack {
     display: block;
     margin-bottom: 15px;
+    color:black;
+    width: 110px;
+    padding: 3px;
+    
+    border: 1px solid black ;
+    border-radius: 8px;
+}
+
+.goBack:hover {
+    border: 1px solid rgb(17, 0, 253) ;
+    background-color:rgb(127, 238, 201);
 }
