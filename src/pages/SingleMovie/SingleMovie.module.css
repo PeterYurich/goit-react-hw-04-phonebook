@@ -1,0 +1,21 @@
+.section {
+    padding: 20px 0;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.61);
+}
+
+.mainInfo {
+    display: flex;
+}
+
+.column:first-child {
+    margin-right: 15px;
+}
+
+.additional_title {
+    margin-bottom: 20px;
+}
+
+.additional_filters {
+    list-style:square
+}
+
